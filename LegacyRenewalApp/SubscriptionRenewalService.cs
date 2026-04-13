@@ -53,23 +53,21 @@ namespace LegacyRenewalApp
             if (customer.Segment == "Silver")
             {
                 discountAmount += baseAmount * 0.05m;
-                notes += "silver discount; ";
             }
             else if (customer.Segment == "Gold")
             {
                 discountAmount += baseAmount * 0.10m;
-                notes += "gold discount; ";
             }
             else if (customer.Segment == "Platinum")
             {
                 discountAmount += baseAmount * 0.15m;
-                notes += "platinum discount; ";
             }
             else if (customer.Segment == "Education" && plan.IsEducationEligible)
             {
                 discountAmount += baseAmount * 0.20m;
-                notes += "education discount; ";
             }
+
+            notes += customer.Segment.ToLower() + " discount; ";
 
             if (customer.YearsWithCompany >= 5)
             {
